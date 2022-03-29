@@ -1,14 +1,14 @@
 package am.List;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
 import org.testng.Assert;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
-import java.io.IOException;
 
 
 @Listeners(TestListener.class)
-public class Firsttest extends TestListener {
+public class Tests extends TestListener {
 
     @BeforeSuite
     public void setDriver() {
@@ -18,18 +18,17 @@ public class Firsttest extends TestListener {
     }
 
     @Test
-    public void firstTest(){
+    public void firstTest() {
         driver.get("https://www.list.am/");
         String title = driver.getTitle();
-        Assert.assertEquals("List.am - Հայաստանի անվճար հայտարարությունների կաsյք", title);
-
+        Assert.assertEquals("List.am - Հայաստանի անվճար հայտարարությունների կայք!", title);
     }
+
     @Test
-    public void search() throws InterruptedException, IOException {
+    public void search() throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", "\"F:/Java/chromedriver.exe\"");
 
         driver.get("https://www.list.am/");
-        First f = new First(driver);
         WebElement element = driver.findElement(By.id("idSearchBox"));
         element.sendKeys("Ճագար");
         element.submit();

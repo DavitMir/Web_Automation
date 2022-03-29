@@ -1,12 +1,9 @@
 package am.List;
 
 import io.qameta.allure.Allure;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import org.testng.annotations.Listeners;
 import ru.yandex.qatools.ashot.AShot;
 import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
 
@@ -15,7 +12,7 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 
 public class TestListener implements ITestListener {
-     static WebDriver driver;
+    static WebDriver driver;
 
     @Override
     public void onTestFailure(ITestResult result) {
@@ -28,6 +25,6 @@ public class TestListener implements ITestListener {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Allure.addAttachment("Screemshot", new ByteArrayInputStream(baos.toByteArray()));
+        Allure.addAttachment("Screenshot", new ByteArrayInputStream(baos.toByteArray()));
     }
 }
